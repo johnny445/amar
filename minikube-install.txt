@@ -23,3 +23,5 @@ minikube delete
 minikube addons list
 minikube start --vm-driver=virtualbox ---- as ubuntu user
 minikube start --vm-driver=none   ----as root user
+minikube dashboard
+minikube dashboard --url
