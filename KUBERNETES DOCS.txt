@@ -1,0 +1,258 @@
+KUBERNETES DOCUMENTATION
+
+1.What is Kubernetes?
+Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services,
+that facilitates both declarative configuration and automation.
+SERVICE DISCOVERY AND LOAD BALANCING:  Kubernetes can expose a container using the DNS name or using their own IP address.
+If traffic to a container is high, Kubernetes is able to load balance and distribute the network traffic so that the deployment is stable.
+
+
+2.SPEAKING KUBERNETES
+CLUSTER:
+A set of nodes that run containerized applications managed by Kubernetes.
+POD:
+The smallest unit in the Kubernetes object model that is used to host containers.
+MASTER NODE:
+a.k.a. control plane
+The orchestration layer that provides interfaces to define, deploy, and manage the lifecycle of containers.
+WORKER NODE:
+Every worker node can host applications as containers. A Kubernetes cluster usually has multiple worker nodes (at least one).
+API SERVER:
+The primary control plane component, that exposes the Kubernetes API, enabling communications between cluster components.
+CONTROLLER-MANAGER:
+A control plane daemon that monitors the state of the cluster and makes all necessary changes for the cluster to reach its desired state.
+CONTAINER RUNTIME:
+The software responsible for running containers by coordinating the use of system resources across containers.
+KUBELET:
+An agent that runs on each worker node in the cluster and ensures that containers are running in a pod.
+KUBECTL:
+A command-line tool for controlling Kubernetes clusters.
+KUBEPROXY:
+Enables communication between worker nodes, by maintaining network rules on the nodes.
+CNI:
+The Container Network Interface is a specification and a set of tools to define networking interfaces between network providers and Kubernetes.
+CSI:
+The Container Storage Interface is a specification for data storage tools and applications to integrate with Kubernetes clusters.
+
+3.KUBERNETES WORKS BY:
+ 1.Orchestrating containers across multiple hosts. 
+ 2.Ensures that containerised apps behave in the same way in all environments, from testing to production.
+ 3.Controlling and automating application deployments and updates.
+ 4.Making more efficient use of hardware to minimise resources needed to run containerised applications. 
+ 5.Mounting and adding storage to run stateful apps.
+ 6.Scaling containerised applications and their resources on the fly.
+ 7.Declaratively managing services, which guarantees that applications are always running as intended.
+ 8.Health-checking and self-healing applications with auto-placement, autorestart, auto-replication and autoscaling.
+ 9.Being open source (all Kubernetes code is on GitHub) and maintained by a large, active community.
+
+4.The main components of a node status are Address, Condition, Capacity, and Info.
+The kube-scheduler assigns nodes to newly created pods.
+
+5.WHAT IS ‘HEAPSTER’ IN KUBERNETES?
+A Heapster is a performance monitoring and metrics collection system for data collected by the Kublet. 
+This aggregator is natively supported and runs like any other pod within a Kubernetes cluster, 
+which allows it to discover and query usage data from all nodes within the cluster.
+
+6.What is a Namespace in Kubernetes?
+Namespaces are used for dividing cluster resources between multiple users. They are meant for environments where 
+there are many users spread across projects or teams and provide a scope of resources.
+ 
+7.Name the initial namespaces from which Kubernetes starts?
+.Default
+.Kube – system
+.Kube – public
+
+8.What is etcd?
+Kubernetes uses etcd as a distributed key-value store for all of its data, including metadata and configuration data, 
+and allows nodes in Kubernetes clusters to read and write data.
+
+9.What are the different services within Kubernetes?
+Different types of Kubernetes services include: 
+1.Cluster IP service
+2.Node Port service
+3.External Name Creation service and 
+4.Load Balancer service
+
+10.What is ClusterIP?
+The ClusterIP is the default Kubernetes service that provides a service inside a cluster (with no external access) 
+that other apps inside your cluster can access. 
+
+11.What is NodePort? 
+The NodePort service is the most fundamental way to get external traffic directly to your service. 
+It opens a specific port on all Nodes and forwards any traffic sent to this port to the service.\
+
+12.What is the LoadBalancer in Kubernetes? 
+The LoadBalancer service is used to expose services to the internet. A Network load balancer, for example, 
+creates a single IP address that forwards all traffic to your service. 
+
+13.What is a headless service?
+A headless service is used to interface with service discovery mechanisms without being tied to a ClusterIP, 
+therefore allowing you to directly reach pods without having to access them through a proxy. 
+It is useful when neither load balancing nor a single Service IP is required. 
+
+14.What is Kubelet?
+The kubelet is a service agent that controls and maintains a set of pods by watching for pod specs through 
+the Kubernetes API server. It preserves the pod lifecycle by ensuring that a given set of containers are all 
+running as they should. The kubelet runs on each node and enables the communication between the master and slave nodes.
+
+15.What is Kubectl?
+Kubectl is a CLI (command-line interface) that is used to run commands against Kubernetes clusters. As such, 
+it controls the Kubernetes cluster manager through different create and manage commands on the Kubernetes component.
+
+16.Give examples of recommended security measures for Kubernetes.
+Examples of standard Kubernetes security measures include defining resource quotas, support for auditing, 
+restriction of etcd access, regular security updates to the environment, network segmentation, 
+definition of strict resource policies, continuous scanning for security vulnerabilities, 
+and using images from authorized repositories.
+
+17.What is Kube-proxy? 
+Kube-proxy is an implementation of a load balancer and network proxy used to support service abstraction 
+with other networking operations. Kube-proxy is responsible for directing traffic to the right container 
+based on IP and the port number of incoming requests.
+
+18.How can you get a static IP for a Kubernetes load balancer? 
+A static IP for the Kubernetes load balancer can be achieved by changing DNS records since the Kubernetes 
+Master can assign a new static IP address.
+
+19.Mention the types of controller managers.
+Types of controller managers are:
+1) endpoints controller
+2) service accounts controller
+3) node controller
+4) namespace controller
+5) replication controller
+6) token controller.
+
+20.Define Ingress Network?
+Ingress network is defined as a collection of rules which allow permission for connections into the Kubernetes cluster.
+
+21.What are the tools that are used for container monitoring?
+Tools that are used for container monitoring are:
+
+.Heapster
+.cAdvisor
+.Prometheus
+.InfluxDB
+.Grafana
+
+22. List components of Kubernetes?
+There are three components of Kubernetes, they are:
+Addons
+Node components
+Master Components
+
+23.What are the important components of node status?
+The important component of node status are:
+.Condition
+.Capacity
+.Info
+.Address
+
+24.Explain Replica set?
+A Replica set is used to keep replica pods stable. It enables us to specify the available number of identical pods. 
+This can be considered a replacement for the replication controller.
+
+25.List out some important Kubectl commands:
+#kubectl annotate
+#kubectl cluster-info
+#kubectl attach
+#kubectl apply
+#kubectl config
+#kubectl autoscale
+#kubectl config current-context
+#kubectl config set.
+
+26. Explain the types of Kubernetes pods
+There are two types of pods in Kubernetes:
+
+Single Container Pod: It can be created with the run command.
+Multicontainer pods: It can be created using the "create" command in Kubernetes.
+
+27.What are the labels in Kubernetes?
+Labels are a collection of keys that contain some values. The key values are connected to pods, 
+replication controllers, and associated services. Generally, labels are added to some object during its creation time. 
+They can be modified by the users at run time.
+
+28.What are the objectives of the replication controller?
+The objectives of the replication controller are:
+
+1.It is responsible for controlling and administering the pod lifecycle.
+2.It monitors and verifies whether the allowed number of replicas are running or not.
+3.The replication controller helps the user to check the pod status.
+4.It enables to alter a pod. The user can drag its position the way interested in it.
+
+29.What do you mean by persistent volume?
+A persistent volume is a storage unit that is controlled by the administrator. It is used to manage an individual pod in a cluster.
+
+30.What are Secrets in Kubernetes?
+Secrets are sensitive information like login credentials of the user. 
+They are objects in Kubernetes that stores sensitive information like username and password after performing encryption.
+
+31.What are the types of Kubernetes Volume?
+The types of Kubernetes Volume are:
+
+.EmptyDir
+.GCE persistent disk
+.Flocker
+.HostPath
+.NFS
+.ISCSI
+.rbd
+.PersistentVolumeClaim
+.downwardAPI
+
+32.Explain PVC?
+The full form of PVC stands for Persistent Volume Claim. It is storage requested by Kubernetes for pods. 
+The user does not require to know the underlying provisioning. This claim should be created in the 
+same namespace where the pod is created.
+
+MASTER
+The master node is the most vital component of Kubernetes architecture. 
+It is the entry point of all administrative tasks. There is always one node to check for fault tolerance.
+
+The master node has various components, such as:  
+1.ETCD
+2.Controller Manager 
+3.Scheduler
+4.API Server
+5.Kubectl
+1. ETCD
+This component stores the configuration details and essential values
+It communicates with all other components to receive the commands to perform an action.
+Manages network rules and post-forwarding activity
+2. Controller Manager
+A daemon (server) that runs in a continuous loop and is responsible for gathering information and sending it to the API Server
+Works to get the shared set of clusters and change them to the desired state of the server 
+The key controllers are the replication controllers, endpoint controller, namespace controllers, and service account controllers
+The controller manager runs controllers to administer nodes and endpoints
+3. Scheduler
+The scheduler assigns the tasks to the slave nodes
+It is responsible for distributing the workload and stores resource usage information on every node
+Tracks how the working load is used on clusters and places the workload on available resources.
+4. API Server
+Kubernetes uses the API server to perform all operations on the cluster
+It is a central management entity that receives all REST requests for modifications, serving as a frontend to the cluster
+Implements an interface, which enables different tools and libraries to communicate effectively
+5. Kubectl
+Kubectl controls the Kubernetes cluster manager
+        Syntax - kubectl [flags]
+
+SLAVE
+The slave node has the following components:
+
+1. Pod
+A pod is one or more containers controlled as a single application
+It encapsulates application containers, storage resources, and is tagged by a unique network ID and other configurations that 
+regulate the operation of containers.
+2. Docker
+One of the basic requirements of nodes is Docker
+It helps run the applications in an isolated, but lightweight operating environment. It runs the configured pods
+It is responsible for pulling down and running containers from Docker images
+3. Kubelet
+Service responsible for conveying information to and from to the control plane service
+It gets the configuration of a pod from the API server and ensures that the containers are working efficiently
+The kubelet process is responsible for maintaining the work status and the node server
+4. Kubernetes Proxy
+Acts as a load balancer and network proxy to perform service on a single worker node
+Manages pods on nodes, volumes, secrets, the creation of new containers, health check-ups, etc.
+A proxy service that runs on every node that makes services available to the external host.
