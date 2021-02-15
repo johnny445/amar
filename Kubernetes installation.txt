@@ -1,7 +1,8 @@
 KUBERNETES INSTALLATION PROCESS
 
+sudo apt-get update
 sudo apt-get  install   docker.io
-sudo apt-get docker start
+service docker start
 
 sudo apt-get update && sudo apt install -y apt-transport-https curl
 
